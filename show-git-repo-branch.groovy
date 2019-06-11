@@ -16,6 +16,11 @@ jobs.each {
 }
 
 println '-' * 150
+println 'Jobs:'
+println '-' * 150
+ldxJobs.each{ println it.name.padRight(50,'.') + it.gitRepo }
+
+println '-' * 150
 println 'Unique git repos:'
 println '-' * 150
 ldxJobs.collect{ it.gitRepo }.unique().each{ println it }
