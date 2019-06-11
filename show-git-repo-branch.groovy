@@ -1,5 +1,6 @@
 counter = 0
 jobs = Jenkins.instance.getAllItems()
+println '>>>>>>>>>> Total jobs = ' + jobs.size()
 def gitScmJobs = []
 
 for (job in jobs) {
