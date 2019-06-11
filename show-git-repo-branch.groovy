@@ -1,5 +1,6 @@
 class LdxJob {
   def name
+  boolean isGit
   String gitRepo
   String branch
 }
@@ -12,13 +13,18 @@ def gitScmJobs = []
 
 List gitRepos = []
 jobs.each {
-  ldxJobs << new LdxJob(name: it.name, gitRepo: it.scm.properties['key'].tokenize('/').last(), branch: it.scm.properties['branches'])
+  ldxJobs << new LdxJob(name: it.name, isGit: (!it.scm instanceof hudson.scm.NullSCM), gitRepo: it.scm.properties['key'].tokenize('/').last(), branch: it.scm.properties['branches'])
 }
 
 println '-' * 150
-println 'Jobs:'
+println 'All Jobs:'
 println '-' * 150
 ldxJobs.each{ println it.name.padRight(50,'.') + it.gitRepo }
+
+println '-' * 150
+println 'All non-git Jobs:'
+println '-' * 150
+ldxJobs.findAll{!it.isGit}.each{ println it.name.padRight(50,'.') + it.gitRepo }
 
 println '-' * 150
 println 'Unique git repos:'
