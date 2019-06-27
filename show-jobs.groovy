@@ -1,6 +1,8 @@
-def allJobs = Jenkins.instance.getAllItems(AbstractItem.class)
-println "** Job count = " + allJobs.size()  
-allJobs.each {
-  	println(it.fullName)
-}
+    def jobs = Jenkins.instance.getItems(AbstractProject.class)
+    println '>>>>>>>>>> Total jobs = ' + jobs.size()
+
+    List gitRepos = []
+    jobs.each {
+      println it.name
+    }
 
