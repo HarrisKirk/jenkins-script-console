@@ -1,4 +1,4 @@
-    def jobs = Jenkins.instance.getAllItems(AbstractProject.class)
+    def jobs = Jenkins.instance.getItems(AbstractProject.class)
     println '>>>>>>>>>> Total jobs = ' + jobs.size()
 
     List gitRepos = []
