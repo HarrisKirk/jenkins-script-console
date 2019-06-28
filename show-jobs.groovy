@@ -3,7 +3,6 @@
 
     List gitRepos = []
     jobs.each {
-      println it.getClass().getName()
+      println it.getBuildClass()
     }
-
 	println ''
