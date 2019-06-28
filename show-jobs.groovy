@@ -6,10 +6,14 @@
     List gitRepos = []
     jobs.each {
       if (it instanceof Project) { 
+        println '>>>>>>>>>>>> Processing ' + it.name 
+        println ''
         List builders = it.getBuilders() 
         builders.each {
           if (it instanceof Shell ) { println it.getContents() }
         } 
+      } else {
+         println '>>>>>>>>>>>> Ignoring ' + it.name 
       }
     }
 	println ''
