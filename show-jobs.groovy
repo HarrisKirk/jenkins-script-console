@@ -15,13 +15,12 @@
 
     List gitRepos = []
     jobs.each {
+      println prettyPrint(it.name + ': ' + it.getClass().getName() )
       if (it instanceof Project) { 
-        println prettyPrint(it.name + ': ' + it.getClass().getName() )
         List builders = it.getBuilders() 
         builders.each {
           println "  Class name:" + it.getClass().getName()
           if (it instanceof Shell ) { println it.getContents().replaceAll("(?m)^", "\t\t") }
-
         } 
       } 
     }
