@@ -3,6 +3,6 @@
 
     List gitRepos = []
     jobs.each {
-      println it.getBuildClass()
+      if (it instanceof Project) { println it.getBuilders() }
     }
 	println ''
